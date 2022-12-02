@@ -1,8 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+require("dotenv").config();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -48,6 +46,16 @@ const config = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
+        gtag: {
+          trackingID: "G-E3L39RVJWZ",
+          anonymizeIP: true,
+        },
+        sitemap: {
+          changefreq: "weekly",
+          priority: 0.5,
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
+        },
       }),
     ],
   ],
@@ -61,6 +69,7 @@ const config = {
           alt: "My Site Logo",
           src: "img/logo.png",
         },
+        hideOnScroll: true,
         items: [
           {
             type: "doc",
@@ -75,8 +84,20 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Cindy. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require("prism-react-renderer/themes/oceanicNext"),
+      },
+      colorMode: {
+        defaultMode: "dark",
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
+      algolia: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: "Note",
       },
     }),
 };
