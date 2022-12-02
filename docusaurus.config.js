@@ -68,6 +68,7 @@ const config = {
         logo: {
           alt: "My Site Logo",
           src: "img/logo.png",
+          href: "/note/docs",
         },
         hideOnScroll: true,
         items: [
