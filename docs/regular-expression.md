@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
 slug: /
+last_update:
+  date: 2022/11/04
 ---
 
 # Regular Expression
