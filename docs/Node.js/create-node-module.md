@@ -2,6 +2,9 @@
 sidebar_position: 1
 last_update:
   date: 2022/12/31
+title: 製作 Node.js Package
+description: 製作 Node.js Package
+keywords: [nodejs]
 ---
 
 # 製作 Node.js Package

@@ -2,6 +2,9 @@
 sidebar_position: 1
 last_update:
   date: 2023/1/14
+title: Top 10 Advanced CSS Responsive Design Concepts You Should Know
+description: Top 10 Advanced CSS Responsive Design Concepts You Should Know
+keywords: [css, RWD]
 ---
 
 # Top 10 Advanced CSS Responsive Design Concepts You Should Know

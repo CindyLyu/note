@@ -1,5 +1,8 @@
 ---
 sidebar_position: 1
+title: submodule
+description: submodule
+keywords: [submodule, git]
 ---
 
 # submodule

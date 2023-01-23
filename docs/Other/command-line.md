@@ -2,6 +2,9 @@
 sidebar_position: 1
 last_update:
   date: 2022/12/31
+title: Command Line
+description: Command Line
+keywords: [command line]
 ---
 
 # Command Line

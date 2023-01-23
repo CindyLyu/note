@@ -2,6 +2,9 @@
 sidebar_position: 1
 last_update:
   date: 2022/12/2
+title: 系統
+description: 系統
+keywords: [系統, linux]
 ---
 
 # 系統
