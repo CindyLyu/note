@@ -105,13 +105,6 @@ keywords: [css, RWD]
 }
 ```
 
-### CSS Grid
-
-- `grid-template-columns: repeat(auto-fit, minmax(100px, 1fr))`：讓內容自己以適合的數量顯示
-
-  - repeat 裡面可以寫 `auto-fit`、`auto-fill`，差別在於 `auto-fit` 會填滿 container，但 `auto-fill` 不會（[範例](https://2l81wr.csb.app/)）
-  - 後者參數寫 `minmax(100px, 1fr)` 代表最小寬度為 100px 且被配置到一等份
-
 ### Clamp
 
 - clamp(): 寫入最小值、最大值、以及當前的值（大部分瀏覽器已支援）
