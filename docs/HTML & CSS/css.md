@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 last_update:
-  date: 2023/1/29
+  date: 2023/2/26
 title: CSS
 description: css
 keywords: [css]
@@ -150,6 +150,14 @@ table {
     ), url("url");
 }
 ```
+
+### height
+
+- 外層固定住，僅限內層可以滾動 [codesandbox](https://codesandbox.io/s/scroll-element-l387fs?file=/index.html)
+
+### overscroll-behavior
+
+- 設定成 none 時可避免觸發刷新頁面（例如在手機的瀏覽器往下滑動時觸發的刷新頁面）
 
 ### 參考資料
 

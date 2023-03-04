@@ -12,12 +12,6 @@ keywords: [系統, linux]
 - Linux 預設的 Shell 為 Bash（/bin/bash)
 - `source filename`是 Bash Shell 內建的指令，會去執行這個檔案的內容，也可以用 `. filename` 取代
 
--
-
-#### 其他
-
--
-
 ### 參考資料
 
 - [認識與學習 Bash](https://linux.vbird.org/linux_basic/centos7/0320bash.php)
