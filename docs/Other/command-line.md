@@ -37,6 +37,7 @@ keywords: [command line]
 - 終止 process ID `$ kill -9 <PID>`
   - `-9` 強制停止執行
   - `-15` 用正常的程序停止執行（預設，代表 `$ kill :3001` 就等於 `$ kill -15 :3001`）
+- `which node` 查詢目前 node 版本的路徑
 
 ### 參考資料
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 last_update:
-  date: 2023/02/17
+  date: 2023/04/07
 title: React
 description: react
 keywords: [react, react-router-dom]
@@ -115,7 +115,59 @@ export default function App() {
 }
 ```
 
-- `useNavigate()` 需要使用於 Router 內（[stackoverflow](https://stackoverflow.com/questions/70491774/usenavigate-may-be-used-only-in-the-context-of-a-router-component))
+- `useNavigate()` 需要使用於 Router 內（[stackoverflow](https://stackoverflow.com/questions/70491774/usenavigate-may-be-used-only-in-the-context-of-a-router-component)
+
+- `useImperativeHandle(ref, createHandle, [deps])`
+
+  - 用來讓父元件可以操作子元件的 DOM，例如以下範例，子元件的 input 會被 focus
+
+```jsx
+// App.js
+import React from "react";
+import "./styles.css";
+import { Input } from "./input";
+export default function App() {
+  const ref = React.useRef();
+
+  const handleInputFocus = () => {
+    ref.current.focus(); // 使用 input 開放的 focus 方法，如果 input 沒有 focus 方法，就會報錯
+  };
+  return (
+    <>
+      <Input ref={ref} handleInputFocus={handleInputFocus} />
+      <div className="App" onClick={handleInputFocus}>
+        click
+      </div>
+    </>
+  );
+}
+
+// input.js
+import { useRef, forwardRef, useImperativeHandle } from "react";
+
+const Input = forwardRef(({ handleInputFocus }, ref) => {
+  const inputRef = useRef();
+
+  useImperativeHandle(
+    ref,
+    () => {
+      return {
+        focus() {
+          inputRef.current.focus();
+        },
+      };
+    },
+    []
+  );
+
+  return <input ref={inputRef} />;
+});
+
+export { Input };
+```
+
+- useEffect 用法
+  // NOTE: 讓 dom 更新的時候也可以同步取得到該 dom 的尺寸，如果是 useEffect 就會有可能取不到更新後的尺寸
 
 ### 參考資料
 

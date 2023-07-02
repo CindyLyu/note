@@ -1,13 +1,21 @@
 ---
 sidebar_position: 1
 last_update:
-  date: 2023/03/03
+  date: 2023/04/21
 title: TypeScript
 description: TypeScript
 keywords: [TypeScript]
 ---
 
 - Enum 類似利用 JavaScript 定義常數的概念
+  ```javascript
+  enum Animal {
+    DOG = "dog",
+    CAT = "cat",
+  }
+
+  const a = Animal.DOG
+  ```
 - 泛型：從呼叫 function 或 class 時來規範型態
 
   ```javascript
@@ -178,6 +186,7 @@ class CarLive extends Live {
 - 在 React 中定義 TypeScript 可參考這篇 [React Typescript CheatSheet](https://github.com/typescript-cheatsheets/react/blob/main/README.md#function-components)
 
 - `keyof`：取出物件的 key 當作 type（後面接的值要是 typescript 的型別）
+  - 如果後面要接 JavaScript 的型別，可以用 `keyof typeof` 來取代
 
 ```javascript
 type Person = {
@@ -187,6 +196,29 @@ type Person = {
 
 type PersonKey = keyof Person; // 用以取代需要寫 "firstName" | "lastName" 以及避免之後 Person 新增 key
 const personKey: PersonKey = "lastName"
+```
+
+
+```javascript
+enum MANUFACTURE {
+  APPLE = 'apple',
+  SAMSUNG = 'samsung',
+  GOOGLE = 'google',
+  SONY = 'sony',
+}
+
+type ManufactureKeys = keyof typeof MANUFACTURE; // 'APPLE' | 'SAMSUNG' | 'GOOGLE' | 'SONY'
+type ManufactureValues = `${MANUFACTURE}`; // 'apple' | 'samsung' | 'google' | 'sony'
+
+```
+```javascript
+const object = {
+  name: "cindy",
+  id: 1,
+}
+
+type Test = typeof object;  // { name: string; id: number; }
+type Test2 = keyof typeof object; // "name" | "id"
 ```
 
 - `as const`：將物件轉成已讀屬性
@@ -221,6 +253,25 @@ type const = readonly[{
   readonly key: "food";
 }]
 ```
+
+- `readonly`：將物件轉成唯讀屬性，一但被宣告後就不能再被更改
+
+```javascript
+interface Person {
+  readonly id: number;
+  name: string;
+  age: number;
+}
+
+const person: Person = {
+  id: 1,
+  name: "cindy",
+  age: 30,
+}
+
+// 之後就沒辦法使用 person.id 來去更改 id
+```
+
 
 - `typeof`：將變數變成型別
 
@@ -257,6 +308,70 @@ type Key = typeof tabItem[number]["key"]
 // Key 就會是只能使用 recommend、sport、food
 ```
 
+- Mapped Type：就不用多寫另一個對應的 type
+
+```javascript
+type SupportedEvent = {
+  click: string;
+  change: string;
+  keyup: string;
+  keydown: string;
+};
+
+type HandledEvent = {
+  [K in keyof SupportedEvent]: () => void; // key 會包含 SupportedEvent 的 key，例如有 click、change、keyup、keydown
+};
+```
+
+- &：交集
+
+
+```javascript
+type Animal = {
+  name: string;
+  age: number;
+  5: string;
+};
+
+type AnimalKeys = string & keyof Animal; // 只能是 string 且 Animal 的 key，所以會是 name、age
+
+```
+
+- 修改 key 值
+
+```javascript
+type SupportedEvent = {
+  click: string;
+  change: string;
+  keyup: string;
+  keydown: string;
+  5: number;
+};
+
+type MappedValuesToFunction<T> = {
+  [K in keyof T]: () => void;
+};
+type HandledEvent = MappedValuesToFunction<SupportedEvent>;
+
+type HandledEventKeys = keyof HandledEvent & string;  // "click" | "change" | "keyup" | "keydown"
+
+type ToEventHandler<T> = {
+  [K in keyof T as `handle${Capitalize<string & K>}`]: T[K];
+};
+// 上面的 key 就會是 handleClick | handleChange | handleKeyup | handleKeydown
+
+type EventHandler = ToEventHandler<HandledEvent>;
+```
+
+- 泛型參數的預設值：可以讓使用者不用一定要傳入泛型參數，使用方式跟 JavaScript 的 object 預設值很像，也是用 `=` 來做
+
+
+```javascript
+type Animal<T extends object, K extends keyof T = keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+// 如果沒有寫 = keyof T，就必須要傳入 K，不然會報錯
+```
+  
+
 ### 參考資料
 
 - [TypeScript | 善用 Enum 提高程式的可讀性 - 基本用法 feat. JavaScript](https://medium.com/enjoy-life-enjoy-coding/typescript-%E5%96%84%E7%94%A8-enum-%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%8F%AF%E8%AE%80%E6%80%A7-%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95-feat-javascript-b20d6bbbfe00)
@@ -269,3 +384,7 @@ type Key = typeof tabItem[number]["key"]
 - [[Day13] TS：什麼！這個 typeof 和我想的不一樣？](https://ithelp.ithome.com.tw/articles/10274229)
 - [[Day06] TS：整合前幾天所學，來寫個 Generic Functions 吧！](https://ithelp.ithome.com.tw/articles/10268780)
 - [杀手级的 TypeScript 功能：const 断言](https://juejin.cn/post/6844903848939634696)
+- [[Day14] TS：什麼！TypeScript 中還有迴圈的概念 - 用 Mapped Type 操作物件型別](https://ithelp.ithome.com.tw/articles/10274801)
+- [[Day15] TS：在 Mapped Type 中使用 Template Literal 來改物件型別中的所有 key](https://ithelp.ithome.com.tw/articles/10275512)
+- [[Day19] TS：什麼！泛型的參數還能有預設值？](https://ithelp.ithome.com.tw/articles/10277647)
+- [第一週第四天：物件型別之介面與陣列型別](https://blog.anna-yufeng.com/typescript-week1-day4-interfaces-array-types)

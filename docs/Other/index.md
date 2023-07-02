@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 last_update:
-  date: 2023/03/03
+  date: 2023/06/25
 title: Other
 description: Other
 keywords: [other]
@@ -13,11 +13,15 @@ keywords: [other]
   - URL：https://google.com，會詳細的說明如何存取，例如有 https 或 mailto
 
 - 學習新技術的步驟
+
   - 為什麼要用這個技術
   - 看官網的初步介紹，稍微使用一下該技術
   - 了解這個技術的概念（官網或 Youtube 或文章）
   - 看程式碼範例
   - 看 API 文件
+
+- Chrome DevTools
+  - Console：可以在搜尋框前後輸入「/」會當作正規表達式，並可用「-」來排除搜尋
 
 ### 參考資料
 

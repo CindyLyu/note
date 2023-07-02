@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 last_update:
-  date: 2023/2/26
+  date: 2023/5/12
 title: CSS
 description: css
 keywords: [css]
@@ -50,7 +50,7 @@ keywords: [css]
 
 ### linear-gradient
 
-- `background-image: linear-gradient(#fff, #000);` 可以寫漸層顏色，也可以寫下漸層的方向或角度
+- `background-image: linear-gradient(#fff, #000);` 可以寫漸層顏色，預設是垂直顯示，也可以寫下漸層的方向或角度
   - `linear-gradient(to left, #fff, #000)` 由右開始白色漸層到左變黑色，第一個參數也可以填入 to right、to bottom right.....
   - `linear-gradient(115deg, #fff, #000)` 115 度開始從白色到黑色的漸層
   - `linear-gradient(115deg, #000, 10%, #fff)` 115 度開始由黑色開始 10% 的寬度後到白色的漸層
@@ -134,9 +134,10 @@ table {
 
 ### box-shadow
 
-- 參數分別為 offset-x、offset-y、blur-radius、color，
+- 參數分別為 offset-x、offset-y、blur-radius、color，可以寫多組陰影，用逗號隔開
   - offset-x 負值會顯示在元素左側
   - offset-y 負值會顯示在元素上方
+  - 如果第一個參數填入 inset 讓陰影在內層的話就是，後面的 offset-x 及 offset-y 將會是負值在元素右側及下方
 
 ### background-image
 
@@ -159,18 +160,48 @@ table {
 
 - 設定成 none 時可避免觸發刷新頁面（例如在手機的瀏覽器往下滑動時觸發的刷新頁面）
 
+### 新增 padding 防止在 iphone 上被 home bar 蓋住
+
+- 先在 HTML 的 header 新增 meta `<meta name="viewport" content="viewport-fit=cover">`
+- 在 element 上加上 CSS env(safe-area-inset-bottom) <sup>[14]</sup>
+
+### `position: sticky`
+
+- `position: sticky` 沒作用可能是遇到父層屬性有 `overflow: hidden` <sup>[15]</sup>
+
+### animation
+
+- `animation-delay`輸入負值，可以讓網頁載入時就先播放動畫，避免看到開始的瞬間
+- `animation-delay: -1s` 代表看到的時候會是開始動畫的第二秒鐘，因為頁面開始前就會先執行一秒的動畫
+- `animation-direction: alternate` 可以讓動畫往返播放
+- `animation-fill-mode` <sup>[16]</sup>
+  - `forwards`：動畫結束後保持最後一個狀態
+  - `backwards`：動畫開始前保持第一個狀態
+  - `both`：動畫開始前保持第一個狀態，動畫結束後保持最後一個狀態
+
+### requestAnimationFrame()
+
+- 瀏覽器自動幫忙調整，在更新畫面時，什麼時候執行會最好，就可以達到最好的互動跟畫面效果
+
+### z-index
+
+- 需要使用在定位的元素上，像是 `position: relative`、`position: absolute`、`position: fixed`，如果沒有定位的元素，`z-index` 就不會生效
+
 ### 參考資料
 
-- [Text-indent - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10243388)
-- [Text-align - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10243882)
-- [Background-image 之二- 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10248148)
-- [Background-repeat- 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10248942)
-- [Background-size- 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10249362)
-- [width & height - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10251849)
-- [margin & padding - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10252624)
-- [Top、Right、Bottom、Left - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10253814)
-- 金魚都能懂的 CSS 選取器（書）
-- [CSS 專家密技 2 - CSS Protips - 阿莫斯の網頁料理室 | CSS 教學 | 新手網頁教學](https://www.youtube.com/watch?v=PiczFSV9xGg&list=PLqivELodHt3gYOrZe4oVUP4_TNRJunD5P&index=2&ab_channel=CSScoke)
-- [一次搞懂 CSS 字體單位：px、em、rem 和 %](https://www.oxxostudio.tw/articles/201809/css-font-size.html)
-- [MDN - box-shadow](https://developer.mozilla.org/zh-TW/docs/Web/CSS/box-shadow)
-- [MDN - background-image](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-image)
+1. [Text-indent - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10243388)
+2. [Text-align - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10243882)
+3. [Background-image 之二- 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10248148)
+4. [Background-repeat- 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10248942)
+5. [Background-size- 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10249362)
+6. [width & height - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10251849)
+7. [margin & padding - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10252624)
+8. [Top、Right、Bottom、Left - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10253814)
+9. 金魚都能懂的 CSS 選取器（書）
+10. [CSS 專家密技 2 - CSS Protips - 阿莫斯の網頁料理室 | CSS 教學 | 新手網頁教學](https://www.youtube.com/watch?v=PiczFSV9xGg&list=PLqivELodHt3gYOrZe4oVUP4_TNRJunD5P&index=2&ab_channel=CSScoke)
+11. [一次搞懂 CSS 字體單位：px、em、rem 和 %](https://www.oxxostudio.tw/articles/201809/css-font-size.html)
+12. [MDN - box-shadow](https://developer.mozilla.org/zh-TW/docs/Web/CSS/box-shadow)
+13. [MDN - background-image](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-image)
+14. [實務踩坑恨 - 我的網頁在 iPhone 瀏海手機上有白邊](https://ithelp.ithome.com.tw/articles/10249354)
+15. [How to Fix Issues With CSS Position Sticky Not Working?](https://www.designcise.com/web/tutorial/how-to-fix-issues-with-css-position-sticky-not-working#checking-if-an-ancestor-element-has-overflow-property-set)
+16. [初探 css animation - 來勢洶洶的動畫屬性(下)](https://ithelp.ithome.com.tw/articles/10200393)

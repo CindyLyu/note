@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 last_update:
-  date: 2022/12/31
+  date: 2023/06/30
 title: 製作 Node.js Package
 description: 製作 Node.js Package
 keywords: [nodejs]
@@ -16,6 +16,7 @@ keywords: [nodejs]
 #### 其他
 
 - `pnpm run dev` 時不會去執行 `predev`，可以在檔案 `.npmrc` 中寫上 `enable-pre-post-scripts=true` 即可解決。
+- `pnpm add <module>@<url>` 安裝特定 url 的套件
 
 ### 參考資料
 
