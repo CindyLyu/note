@@ -1,5 +1,4 @@
 ---
-sidebar_position: 4
 last_update:
   date: 2023/03/10
 title: Canvas

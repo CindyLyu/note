@@ -1,5 +1,4 @@
 ---
-sidebar_position: 1
 last_update:
   date: 2023/06/25
 title: Other

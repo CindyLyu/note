@@ -1,5 +1,4 @@
 ---
-sidebar_position: 1
 last_update:
   date: 2022/12/02
 title: You Might Not Need an Effect

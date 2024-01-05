@@ -1,5 +1,4 @@
 ---
-sidebar_position: 2
 last_update:
   date: 2022/12/31
 title: Command Line

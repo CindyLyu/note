@@ -1,5 +1,4 @@
 ---
-sidebar_position: 3
 last_update:
   date: 2023/02/03
 title: Turborepo
