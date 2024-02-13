@@ -13,6 +13,7 @@ keywords: [git]
   - 當 branch 被誤刪的時候，可以使用 `git reflog` 來找到該 branch 中的 commit，然後在 `git checkout` 到該 commit 後建立 branch 就可以恢復被刪除的 branch
 - `git rebase` 及 `git merge` 差別在於 rebase 會修改歷史紀錄，相同修改的地方會被合併，優點是可以好好整理 commit；而 merge 則會保留這些歷史紀錄，相對於 rebase 的歷史紀錄可能會比較瑣碎
 - `git stash save --keep-index -u`：僅暫存 unstage 的檔案，且包含未追蹤的檔案（新增的檔案）
+- `git clone <path> --depth=3` 只 clone 最近的 3 個 commit，速度會比較快<sup>[1]</sup>
 
 ### 參考資料
 

@@ -16,9 +16,11 @@ keywords: [nodejs]
 
 - `pnpm run dev` 時不會去執行 `predev`，可以在檔案 `.npmrc` 中寫上 `enable-pre-post-scripts=true` 即可解決。
 - `pnpm add <module>@<url>` 安裝特定 url 的套件
+- `pnpm link -g` 將此套件變成全域的套件，可以在其他專案中使用 `pnpm link -g <package-name>` 來連結此套件 <sup>[4]</sup>
 
 ### 參考資料
 
-- [#!/usr/bin/env node 到底是什么？](https://juejin.cn/post/6844903826344902670)
-- [Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules)
-- [pnpm Defferences with npm run](https://pnpm.io/cli/run#differences-with-npm-run)
+1. [#!/usr/bin/env node 到底是什么？](https://juejin.cn/post/6844903826344902670)
+2. [Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules)
+3. [pnpm Defferences with npm run](https://pnpm.io/cli/run#differences-with-npm-run)
+4. [[Vite 原始碼解讀] 如何追原始碼？](https://ithelp.ithome.com.tw/articles/10332272)

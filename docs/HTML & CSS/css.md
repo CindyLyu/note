@@ -1,6 +1,6 @@
 ---
 last_update:
-  date: 2023/5/12
+  date: 2023/11/24
 title: CSS
 description: css
 keywords: [css]
@@ -186,6 +186,10 @@ table {
 
 - 需要使用在定位的元素上，像是 `position: relative`、`position: absolute`、`position: fixed`，如果沒有定位的元素，`z-index` 就不會生效
 
+### box-sizing
+
+- 需要固定寬高時，可以使用 `box-sizing: border-box`，這樣就不會因為 padding 或 border 而讓元素變大<sup>[17]</sup>（如果不想限定寬高就用 outline 取代 border）
+
 ### 參考資料
 
 1. [Text-indent - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10243388)
@@ -204,3 +208,4 @@ table {
 14. [實務踩坑恨 - 我的網頁在 iPhone 瀏海手機上有白邊](https://ithelp.ithome.com.tw/articles/10249354)
 15. [How to Fix Issues With CSS Position Sticky Not Working?](https://www.designcise.com/web/tutorial/how-to-fix-issues-with-css-position-sticky-not-working#checking-if-an-ancestor-element-has-overflow-property-set)
 16. [初探 css animation - 來勢洶洶的動畫屬性(下)](https://ithelp.ithome.com.tw/articles/10200393)
+17. [5 px border added to button, Button size increases. Box-sizing not working](https://stackoverflow.com/questions/47828199/5-px-border-added-to-button-button-size-increases-box-sizing-not-working)
