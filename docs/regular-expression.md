@@ -1,7 +1,7 @@
 ---
 slug: /
 last_update:
-  date: 2022/11/04
+  date: 2024/03/22
 title: Regular Expression
 description: Regular Expression
 keywords: [regular expression]
@@ -43,8 +43,12 @@ keywords: [regular expression]
 | \x21-\x7e |                 | i.e. all printable, non-whitespace ASCII characters including punctuation, upper and lower case letters and numbers                                                                                              |
 | $         | test$           | 最後一個字要比對到                                                                                                                                                                                               |
 | ?:        | (\d+)(?:x)(\d+) | (non-capturing group) 排除群組，如果是 1280x720 代表會排除 x 然後組出兩個組為 1280 和 720（其實可以直接寫成 (\d+)x(\d+) ）                                                                                       |
+| ?<name>   | ?<firstName>    | 替比對到的字串名<sup>1</sup>                                                                                                                                                                                     |
+| \b        | \bJava\b        | 當作邊界，例如 \bJava\b 就只會找到 Java 的值而不會找到 JavaScript                                                                                                                                                |
 
 ### 參考資料
+
+1.  [十五分鐘認識正規表達式，解決所有文字難題](https://5xcampus.com/posts/15min-regular-expression.html)
 
 - [RegexOne](https://regexone.com/)
 - [regex101](https://regex101.com/)
