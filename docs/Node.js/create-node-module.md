@@ -17,6 +17,10 @@ keywords: [nodejs]
 - `pnpm run dev` 時不會去執行 `predev`，可以在檔案 `.npmrc` 中寫上 `enable-pre-post-scripts=true` 即可解決。
 - `pnpm add <module>@<url>` 安裝特定 url 的套件
 - `pnpm link -g` 將此套件變成全域的套件，可以在其他專案中使用 `pnpm link -g <package-name>` 來連結此套件 <sup>[4]</sup>
+  - 先將套件 clone 下來，並執行 `pnpm link -g` （將此套件變成全域的套件）
+    ![pnpm link](./img/pnpm-link-g.png)
+  - 開啟要測試的專案，一樣執行 `pnpm link -g` 就可以使用上面全域的套件（在 node_modules 裡面可以看到此套件名稱右邊有多了一個箭頭的符號）
+    ![pnpm link](./img/link.png)
 
 ### 參考資料
 
