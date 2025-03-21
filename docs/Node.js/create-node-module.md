@@ -1,6 +1,6 @@
 ---
 last_update:
-  date: 2023/06/30
+  date: 2025/01/10
 title: 製作 Node.js Package
 description: 製作 Node.js Package
 keywords: [nodejs]
@@ -18,9 +18,13 @@ keywords: [nodejs]
 - `pnpm add <module>@<url>` 安裝特定 url 的套件
 - `pnpm link -g` 將此套件變成全域的套件，可以在其他專案中使用 `pnpm link -g <package-name>` 來連結此套件 <sup>[4]</sup>
   - 先將套件 clone 下來，並執行 `pnpm link -g` （將此套件變成全域的套件）
-    ![pnpm link](./img/pnpm-link-g.png)
+    ![pnpm link](./img/pnpm-link-g.png)n
   - 開啟要測試的專案，一樣執行 `pnpm link -g` 就可以使用上面全域的套件（在 node_modules 裡面可以看到此套件名稱右邊有多了一個箭頭的符號）
     ![pnpm link](./img/link.png)
+- `npm ls --global --depth 0` 查詢現在全域連結的套件，會看到有一個項目是這個套件後面寫 link 的路徑
+- 取消連結全域套件
+  - 先在全域套件執行 `npm rm --g <package-name>` 取消連結全域
+  - 在重新安裝 npm install 即可
 
 ### 參考資料
 

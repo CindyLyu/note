@@ -1,6 +1,6 @@
 ---
 last_update:
-  date: 2023/11/24
+  date: 2025/03/21
 title: CSS
 description: css
 keywords: [css]
@@ -167,6 +167,7 @@ table {
 ### `position: sticky`
 
 - `position: sticky` 沒作用可能是遇到父層屬性有 `overflow: hidden` <sup>[15]</sup>
+- 依據最近父層可捲動區域來 sticky
 
 ### animation
 
@@ -189,6 +190,26 @@ table {
 ### box-sizing
 
 - 需要固定寬高時，可以使用 `box-sizing: border-box`，這樣就不會因為 padding 或 border 而讓元素變大<sup>[17]</sup>（如果不想限定寬高就用 outline 取代 border）
+
+### Selectors
+
+- +：代表旁邊（也就是同層級）一個如果有符合的元素
+
+```css
+/* 如下範例代表 .bg-black 右邊一個如果含有 bg-black 的 class 就套用此 */
+.bg-black + .bg-black {
+  color: red;
+}
+```
+
+- ~：旁邊的元素， ~ 代表旁邊（也就是同層級）所有符合的元素
+
+```css
+/* 如下 CSS 檔案範例代表 .bg-black 旁邊所有含有 bg-black 的 class 都套用此 */
+.bg-black ~ .bg-black {
+  color: red;
+}
+```
 
 ### 參考資料
 
