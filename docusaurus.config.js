@@ -9,7 +9,7 @@ const config = {
   baseUrl: "/note/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "/img/favicon.ico",
+  favicon: "/note/img/favicon.ico",
   trailingSlash: true,
 
   // GitHub pages deployment config.
@@ -102,6 +102,10 @@ const config = {
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: "Note",
       },
+      metadata: [
+        { name: "apple-touch-icon", content: "/note/img/favicon.ico" },
+        { name: "icon", type: "image/x-icon", href: "/note/img/favicon.ico" },
+      ],
     }),
 };
 
