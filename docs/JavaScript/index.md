@@ -1,6 +1,6 @@
 ---
 last_update:
-  date: 2024/01/05
+  date: 2025/04/01
 title: JavaScript
 description: JavaScript
 keywords: [javascript]
@@ -76,6 +76,7 @@ JSON.stringify(obj, (key, value) => {
 ```
 
 - 設計模式原則 - 里氏替換原則：疊加新的邏輯上去，之後要抽掉也可以不影響基礎的邏輯 <sup>[7-22]</sup>
+- 讓一個元素點擊後不要被 focus：元素上新增 `onMouseDown` 事件，內容為 `event.preventDefault()`（click 行爲是 mouseDown + mouseUp 的行為，而 focus 會在 mouseDown 時發生，所以要在 mouseDown 時阻止預設行為）<sup>[8]</sup>
 
 ### 參考資料
 
@@ -86,3 +87,4 @@ JSON.stringify(obj, (key, value) => {
 5. [why Object.prototype.toString return [object Object]](https://stackoverflow.com/questions/27731303/why-object-prototype-tostring-return-object-object)
 6. [[Vite 原始碼解讀] Dependency Pre-Bundling part 2](https://ithelp.ithome.com.tw/articles/10326348)
 7. [JavaScript 設計模式學習手冊讀書會簡報](https://kuro.tw/slides/js-design-pattern-00)
+8. [Prevent firing focus event when clicking on div](https://stackoverflow.com/questions/8735764/prevent-firing-focus-event-when-clicking-on-div)
