@@ -1,6 +1,6 @@
 ---
 last_update:
-  date: 2025/03/21
+  date: 2025/03/29
 title: CSS
 description: css
 keywords: [css]
@@ -211,6 +211,15 @@ table {
 }
 ```
 
+### flex
+
+- 當 flex 的子層沒有依據內容做高度或寬度的縮放時，可以用 `min-width: 0` 及 `min-height: 0` 來避免子層使用預設的 `min-height: auto` 及 `min-width: auto`，或者直接使用 `overflow: hidden` 只要是非 hidden 的值就可以讓其變成 `min-width: 0` 及 `min-height:0` <sup>[17]</sup>
+
+### zoom & scale
+
+- `zoom` 是相對於左上角去縮放
+- `scale()` 預設是相對於中心點去縮放<sup>[19]</sup>
+
 ### 參考資料
 
 1. [Text-indent - 金魚都能懂的 CSS 必學屬性](https://ithelp.ithome.com.tw/articles/10243388)
@@ -230,3 +239,5 @@ table {
 15. [How to Fix Issues With CSS Position Sticky Not Working?](https://www.designcise.com/web/tutorial/how-to-fix-issues-with-css-position-sticky-not-working#checking-if-an-ancestor-element-has-overflow-property-set)
 16. [初探 css animation - 來勢洶洶的動畫屬性(下)](https://ithelp.ithome.com.tw/articles/10200393)
 17. [5 px border added to button, Button size increases. Box-sizing not working](https://stackoverflow.com/questions/47828199/5-px-border-added-to-button-button-size-increases-box-sizing-not-working)
+18. [Why don't flex items shrink past content size?](https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size)
+19. [小 tips: zoom 和 transform:scale 的区别](https://www.zhangxinxu.com/wordpress/2015/11/zoom-transform-scale-diff/)
