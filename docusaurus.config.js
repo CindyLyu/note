@@ -103,8 +103,19 @@ const config = {
         indexName: "Note",
       },
       metadata: [
-        { name: "apple-touch-icon", content: "/note/img/favicon.ico" },
-        { name: "icon", type: "image/x-icon", href: "/note/img/favicon.ico" },
+        {
+          name: "apple-touch-icon",
+          content: "/note/img/favicon.ico",
+        },
+        {
+          name: "shortcut icon",
+          href: "/note/img/favicon.ico",
+        },
+        {
+          name: "icon",
+          type: "image/x-icon",
+          href: "/note/img/favicon.ico",
+        },
       ],
     }),
 };
